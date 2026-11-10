@@ -1,0 +1,169 @@
+/* Giao diện quản trị dùng Bootstrap và các thành phần bố cục riêng. */
+body { font-size: 1.04rem; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #212529; }
+h1 { font-size: 1.56rem; }
+h2 { font-size: 1.144rem; }
+.card { box-shadow: none; margin-bottom: 1.5rem; }
+.card-header { background: #fff; padding: 1rem; }
+.card-body { padding: 1.25rem; }
+.table { margin-bottom: 0; }
+.table th { white-space: nowrap; }
+.table td { vertical-align: middle; }
+.admin-thumbnail { width: 56px; height: 56px; object-fit: contain; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: .25rem; }
+.admin-image-preview { max-width: 160px; max-height: 160px; object-fit: contain; }
+.admin-login { width: 100%; max-width: 420px; }
+.admin-form { max-width: 900px; }
+.admin-actions { white-space: nowrap; }
+.dataTable-top, .dataTable-bottom { padding: 1rem 0; display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; justify-content: space-between; }
+.dataTable-input, .dataTable-selector { border: 1px solid #ced4da; border-radius: .25rem; padding: .4rem .65rem; background: #fff; color: #212529; }
+.dataTable-container { overflow-x: auto; border-bottom: 0 !important; }
+.dataTable-pagination a { border-radius: .25rem; }
+.dataTable-pagination .active a { background: #435ebe; color: #fff; }
+.progress { height: .5rem; }
+@media (max-width: 575.98px) {
+    .card-body { padding: 1rem; }
+    .dataTable-search, .dataTable-input { width: 100%; }
+    .admin-actions .btn { margin-bottom: .25rem; }
+}
+
+:root { --admin-blue: #3772ff; --admin-border: #e3e8f1; --admin-text: #1b2232; --sidebar-width: 240px; }
+.admin-body { background: #f5f7fb; color: var(--admin-text); }
+.admin-sidebar { position: fixed; inset: 0 auto 0 0; width: var(--sidebar-width); background: #253244; color: #e9eef7; display: flex; flex-direction: column; z-index: 1040; transition: transform .2s ease; }
+.admin-brand { height: 70px; padding: 0 19px; display: flex; align-items: center; gap: 12px; color: #fff; border-bottom: 1px solid #ffffff12; font-size: 17.68px; font-weight: 650; white-space: nowrap; }
+.admin-brand:hover { color: #fff; }
+.admin-brand > i { font-size: 31.2px; }
+.admin-menu { padding: 20px 10px; }
+.admin-menu-link { display: flex; align-items: center; gap: 13px; padding: 12px 14px; margin-bottom: 6px; border-radius: 6px; font-size: 14.56px; color: #e2e8f0; min-height: 46px; }
+.admin-menu-link > i { width: 21px; flex-shrink: 0; font-size: 19.76px; }
+.admin-menu-link:hover { color: #fff; background: #ffffff0d; }
+.admin-menu-link.active { color: #fff; background: var(--admin-blue); box-shadow: inset 0 0 0 1px #ffffff12; }
+.admin-menu-count { font-size: 11.44px; border-radius: 20px; padding: 1px 6px; margin-left: auto; background: #ef4444; color: #fff; }
+.admin-menu-divider { border-top: 1px solid #ffffff24; margin: 22px 10px 16px; }
+.admin-sidebar-foot { margin-top: auto; padding: 20px 24px; font-size: 12.48px; color: #9eacc0; }
+.admin-shell { margin-left: var(--sidebar-width); min-height: 100vh; display: flex; flex-direction: column; transition: margin-left .2s ease; }
+.admin-topbar { height: 64px; background: #fff; border-bottom: 1px solid var(--admin-border); display: flex; align-items: center; padding: 0 26px; position: sticky; top: 0; z-index: 1020; }
+.admin-icon-button { border: 0; background: transparent; color: #59667a; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; font-size: 22.88px; }
+.admin-icon-button:hover { color: var(--admin-blue); background: #f1f5fb; }
+.admin-notification { position: relative; font-size: 20.8px; }
+.notification-dot { position: absolute; right: 6px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: #ef4444; border: 2px solid #fff; box-sizing: content-box; }
+.admin-user { display: flex; align-items: center; gap: 10px; background: none; border: 0; color: #283448; font-size: 14.56px; }
+.admin-avatar { width: 34px; height: 34px; border-radius: 50%; background: #e6ecf4; color: #8b9ab0; display: inline-flex; align-items: center; justify-content: center; font-size: 26px; overflow: hidden; }
+.admin-content { padding: 24px; width: 100%; max-width: 1680px; margin: 0 auto; }
+.admin-content h1 { font-size: 26px; font-weight: 700; letter-spacing: -.5px; }
+.admin-content .card { border-color: var(--admin-border); border-radius: 9px; }
+.admin-content .card-header { border-bottom-color: var(--admin-border); border-radius: 9px 9px 0 0; }
+.admin-content .btn-primary { background: var(--admin-blue); border-color: var(--admin-blue); }
+.admin-footer { padding: 12px 24px; font-size: 12.48px; color: #8490a2; }
+.admin-body.sidebar-collapsed .admin-sidebar { transform: translateX(-100%); }
+.admin-body.sidebar-collapsed .admin-shell { margin-left: 0; }
+.admin-sidebar-backdrop { position: fixed; inset: 0; border: 0; background: #101c3280; z-index: 1035; }
+.dashboard-heading { margin-bottom: 20px; }
+.dashboard-kpis { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)) minmax(0,1.2fr); gap: 14px; margin-bottom: 20px; }
+.dashboard-kpi { display: flex; align-items: flex-start; gap: 15px; padding: 20px 16px; background: #fff; border: 1px solid var(--admin-border); border-radius: 9px; min-width: 0; }
+.kpi-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 28.08px; }
+.kpi-blue { background: #eaf1ff; color: #3772ff; }
+.kpi-green { background: #eaf8ed; color: #36ac50; }
+.kpi-orange { background: #fff3df; color: #f5a313; }
+.kpi-purple { background: #f1eafe; color: #8545d4; }
+.kpi-title { font-size: 13.52px; color: #495365; margin-bottom: 5px; }
+.kpi-value { font-size: 26px; font-weight: 750; line-height: 1.2; letter-spacing: -.6px; overflow-wrap: anywhere; }
+.kpi-revenue { font-size: 22.88px; }
+.kpi-note { color: #7a8698; font-size: 11.44px; margin-top: 7px; }
+.kpi-change { display: inline-block; padding: 2px 5px; border-radius: 4px; background: #e7f7e9; color: #288a3c; font-size: 11.44px; font-weight: 600; margin-top: 5px; }
+.kpi-change.negative { background: #fff0f0; color: #cc4141; }
+.dashboard-upper { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; margin-bottom: 18px; }
+.dashboard-lower { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.dashboard-panel { background: #fff; border: 1px solid var(--admin-border); border-radius: 9px; padding: 18px; min-width: 0; }
+.dashboard-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; }
+.dashboard-panel h2 { font-size: 16.64px; font-weight: 700; margin: 0; }
+.dashboard-link { color: var(--admin-blue); font-size: 12.48px; font-weight: 600; white-space: nowrap; }
+.dashboard-period { width: auto; font-size: 12.48px; padding-top: 5px; padding-bottom: 5px; }
+.dashboard-chart { height: 245px; position: relative; }
+.dashboard-table { font-size: 12.48px; }
+.dashboard-table > :not(caption) > * > * { padding: 11px 7px; border-color: #edf0f5; }
+.dashboard-table th { background: #f7f8fb; font-weight: 650; }
+.dashboard-table .badge { font-size: 10.4px; font-weight: 500; padding: 5px 8px; border-radius: 4px; }
+.dashboard-table td:first-child { white-space: nowrap; }
+.dashboard-status-pending { background: #e8f0ff; color: #3762b4; }
+.dashboard-status-shipping { background: #fff1d8; color: #a66b12; }
+.dashboard-status-delivered { background: #e5f5e5; color: #35853a; }
+.dashboard-status-cancelled { background: #fde7e7; color: #be4444; }
+.bestseller-row { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #edf0f5; }
+.bestseller-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.bestseller-rank { height: 21px; width: 21px; flex-shrink: 0; border-radius: 6px; background: #eef1f6; text-align: center; font-size: 12.48px; font-weight: 700; line-height: 21px; color: #677489; }
+.bestseller-row:first-child .bestseller-rank { background: #ffcc4a; color: #795508; }
+.bestseller-row .admin-thumbnail { width: 44px; height: 44px; flex-shrink: 0; border: 0; border-radius: 8px; }
+.bestseller-name { font-size: 13.52px; font-weight: 650; color: #283448; }
+.bestseller-price { margin-left: auto; font-size: 13.52px; font-weight: 650; white-space: nowrap; }
+.dashboard-empty { color: #8490a2; font-size: 13.52px; text-align: center; padding: 45px 12px; }
+.dashboard-status-layout { display: flex; align-items: center; gap: 24px; min-height: 190px; }
+.dashboard-doughnut { width: 180px; height: 180px; position: relative; flex-shrink: 0; }
+.doughnut-label { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; pointer-events: none; color: #738096; font-size: 12.48px; }
+.doughnut-label strong { font-size: 26px; color: #202a3a; line-height: 1.2; }
+.status-legend { padding: 0; list-style: none; margin: 0; width: 100%; }
+.status-legend li { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 12.48px; }
+.status-legend li:last-child { margin-bottom: 0; }
+.status-legend strong { margin-left: auto; font-weight: 600; white-space: nowrap; }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; background: var(--status-color); }
+.admin-icon-button:focus-visible, .admin-user:focus-visible, .admin-menu-link:focus-visible { outline: 3px solid #91b2ff; outline-offset: 3px; }
+@media (max-width: 1199.98px) {
+    :root { --sidebar-width: 220px; }
+    .admin-brand { font-size: 15.6px; padding: 0 15px; }
+    .admin-content { padding: 20px; }
+    .dashboard-kpis { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .dashboard-upper, .dashboard-lower { grid-template-columns: 1fr; }
+    .dashboard-status-layout { justify-content: center; }
+    .status-legend { max-width: 300px; }
+}
+@media (max-width: 767.98px) {
+    .admin-sidebar { transform: translateX(-100%); }
+    .admin-shell, .admin-body.sidebar-collapsed .admin-shell { margin-left: 0; }
+    .admin-body.sidebar-open .admin-sidebar { transform: translateX(0); }
+    .admin-topbar { padding: 0 16px; height: 60px; }
+    .admin-content { padding: 20px 14px; }
+    .admin-content h1 { font-size: 23.92px; }
+    .dashboard-panel { padding: 15px; }
+    .dashboard-kpi { padding: 15px 12px; gap: 10px; }
+    .kpi-icon { width: 38px; height: 38px; font-size: 22.88px; }
+    .kpi-value { font-size: 23.92px; }
+    .kpi-revenue { font-size: 19.76px; }
+    .dashboard-table { min-width: 410px; }
+}
+@media (max-width: 419.98px) {
+    .dashboard-kpis { grid-template-columns: 1fr; gap: 10px; }
+    .dashboard-status-layout { flex-direction: column; gap: 20px; }
+    .bestseller-row { gap: 8px; }
+    .bestseller-price { font-size: 12.48px; }
+}
+@media (prefers-reduced-motion: reduce) { .admin-sidebar, .admin-shell { transition: none; } }
+
+/* Cỡ chữ đồng bộ cho các thành phần Bootstrap. */
+.form-control, .form-select, .btn, .dropdown-menu { font-size: 1.04rem; }
+.btn-sm, .form-control-sm, .form-select-sm { font-size: 0.91rem; }
+.fs-4 { font-size: 1.56rem !important; }
+a, a:hover, a:focus, a:active, a:visited { text-decoration: none !important; }
+/* Chừa đủ chỗ cho nhãn menu và số liệu sau khi tăng cỡ chữ. */
+:root { --sidebar-width: 300px; }
+.admin-brand { white-space: normal; line-height: 1.3; }
+.admin-menu-link span { min-width: 0; }
+.dashboard-panel-head { flex-wrap: wrap; }
+.dashboard-status-layout { flex-wrap: wrap; justify-content: center; }
+.status-legend { flex: 1 1 220px; }
+.bestseller-row { flex-wrap: wrap; }
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    :root { --sidebar-width: 280px; }
+}
+
+/* Thanh chọn số dòng và tìm kiếm của bảng. */
+.dataTable-top { gap: 1rem; }
+.dataTable-top > div { float: none; }
+.dataTable-top .dataTable-dropdown { display: inline-flex; align-items: center; gap: .65rem; flex: 0 0 auto; }
+.dataTable-dropdown label { margin: 0; white-space: nowrap; font-size: inherit; }
+.dataTable-dropdown .dataTable-selector { width: auto; min-width: 5rem; flex: 0 0 auto; padding-right: 2rem; }
+.dataTable-top .dataTable-search { margin-left: auto; }
+.dataTable-search .dataTable-input { width: 320px; max-width: 100%; }
+@media (max-width: 575.98px) {
+    .dataTable-top .dataTable-search { width: 100%; margin-left: 0; }
+    .dataTable-search .dataTable-input { width: 100%; }
+}
+
+.dashboard-status-confirmed { background: #f1eafb; color: #7953b4; }
